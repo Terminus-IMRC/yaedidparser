@@ -11,15 +11,23 @@
 
 #define CASCII_TO_ASCII(ca) (('A' - 1 + ((ca))))
 
-int main()
+int main(int argc, char *argv[])
 {
 	uint8_t buf[0x80];
+	char *filename = NULL;
 	FILE *fp;
 
 	int reti;
 	ssize_t retss;
 
-	fp = fopen("ed", "rb");
+	if (argc != 2) {
+		fprintf(stderr, "error: invalid the number of the arguments\n");
+		goto exit_program;
+	}
+
+	filename = argv[1];
+
+	fp = fopen(filename, "rb");
 	if (fp == NULL) {
 		fprintf(stderr, "fopen: %s\n", strerror(errno));
 		goto exit_program;
