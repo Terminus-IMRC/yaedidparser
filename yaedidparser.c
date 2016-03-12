@@ -5,6 +5,10 @@
 #include <inttypes.h>
 #include <errno.h>
 
+/*
+ * http://read.pudn.com/downloads110/ebook/456020/E-EDID%20Standard.pdf
+ */
+
 #define CASCII_TO_ASCII(ca) (('A' - 1 + ((ca))))
 
 int main()
